@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy4x2mhc7ggwg"
-path="res://.godot/imported/rat.png-b5409c26efb8da1cdf3c9e0dbf6fcf1d.ctex"
+uid="uid://bfgnu0axlqixe"
+path="res://.godot/imported/tilemap_packed.png-4c9bdbd02624781be861e74e46f9d602.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rat.png"
-dest_files=["res://.godot/imported/rat.png-b5409c26efb8da1cdf3c9e0dbf6fcf1d.ctex"]
+source_file="res://sprites/tilemap_packed.png"
+dest_files=["res://.godot/imported/tilemap_packed.png-4c9bdbd02624781be861e74e46f9d602.ctex"]
 
 [params]
 

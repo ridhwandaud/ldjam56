@@ -2,12 +2,16 @@ extends Node2D
 
 @onready var tile_map = $"../TileMap"
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player = $AnimationPlayer
+
+var targetScene = "res://scenes/level/level2.tscn"
 
 var is_moving = false
 
 var current_tile : Vector2i
 var next_tile : Vector2i
 var auto_next_tile : Vector2i 
+var is_dead = false
 
 func _physics_process(delta: float) -> void:
 	if is_moving == false:
@@ -18,10 +22,13 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	sprite_2d.global_position = sprite_2d.global_position.move_toward(global_position, 2)
+	
 
-func _process(delta):
+func _process(delta):	
 	auto_next_tile = Vector2i.ZERO
 	if is_moving:
+		return
+	if is_dead:
 		return
 		
 	if Input.is_action_pressed("up"):
@@ -51,7 +58,8 @@ func move(direction: Vector2):
 	
 	if path_data:
 		if path_data.get_custom_data("spike"):
-			self.queue_free()
+			is_dead = true
+			animation_player.play("die")
 	
 		if path_data.get_custom_data("right"):
 			auto_next_tile = Vector2i(
@@ -74,8 +82,14 @@ func move(direction: Vector2):
 				next_tile.y + -1
 			)
 		
+		if path_data.get_custom_data("walkable") == false:
+			return
+		
 	if tile_data.get_custom_data("walkable") == false:
 		return
+	
+	if tile_data.get_custom_data("win"):
+		get_tree().change_scene_to_file(targetScene)
 		
 	is_moving = true
 	global_position = tile_map.map_to_local(next_tile)
@@ -86,7 +100,8 @@ func move(direction: Vector2):
 		var auto_path_data: TileData = tile_map.get_cell_tile_data(1, auto_next_tile)
 		if auto_path_data:
 			if auto_path_data.get_custom_data("spike"):
-				self.queue_free()
+				is_dead = true
+				animation_player.play("die")
 		
 		global_position = tile_map.map_to_local(auto_next_tile)
 		sprite_2d.global_position = tile_map.map_to_local(next_tile)
