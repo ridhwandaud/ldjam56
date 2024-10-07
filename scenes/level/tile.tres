@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://c0ae0ouauckjx"]
 
-[ext_resource type="Texture2D" uid="uid://bfgnu0axlqixe" path="res://sprites/tilemap_packed.png" id="1_w2e2d"]
-[ext_resource type="Texture2D" uid="uid://cdp85s2dw6iwo" path="res://sprites/arrow.png" id="2_36rxc"]
-[ext_resource type="Texture2D" uid="uid://io3kfe86ev7l" path="res://scenes/rat/rat_die.png" id="3_mhxps"]
+[ext_resource type="Texture2D" uid="uid://bfgnu0axlqixe" path="res://sprites/tilemap_packed.png" id="1_6udlx"]
+[ext_resource type="Texture2D" uid="uid://cdp85s2dw6iwo" path="res://sprites/arrow.png" id="2_fk3u5"]
+[ext_resource type="Texture2D" uid="uid://io3kfe86ev7l" path="res://scenes/rat/rat_die.png" id="3_smd0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hpiea"]
-texture = ExtResource("1_w2e2d")
+texture = ExtResource("1_6udlx")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -157,7 +157,7 @@ texture = ExtResource("1_w2e2d")
 11:10/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tyq52"]
-texture = ExtResource("2_36rxc")
+texture = ExtResource("2_fk3u5")
 0:0/0 = 0
 0:0/0/custom_data_0 = true
 0:0/0/custom_data_4 = true
@@ -176,7 +176,7 @@ texture = ExtResource("2_36rxc")
 3:0/0/custom_data_6 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8bi6"]
-texture = ExtResource("3_mhxps")
+texture = ExtResource("3_smd0b")
 0:0/0 = 0
 
 [resource]
@@ -192,7 +192,7 @@ custom_data_layer_4/name = "top"
 custom_data_layer_4/type = 1
 custom_data_layer_5/name = "spike"
 custom_data_layer_5/type = 1
-custom_data_layer_6/name = "filpable"
+custom_data_layer_6/name = "flipable"
 custom_data_layer_6/type = 1
 custom_data_layer_7/name = "win"
 custom_data_layer_7/type = 1

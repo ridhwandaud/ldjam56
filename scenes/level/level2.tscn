@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://c0ae0ouauckjx" path="res://scenes/level/tile.tres" id="2_mve8s"]
 [ext_resource type="PackedScene" uid="uid://2vjwaknvoaqv" path="res://scenes/rat/rat.tscn" id="3_oo8ae"]
 [ext_resource type="PackedScene" uid="uid://cauid3vf78jo8" path="res://scenes/manager/game_manager.tscn" id="4_mhpb2"]
-[ext_resource type="Texture2D" uid="uid://bk3plge51he7q" path="res://sprites/spike_hide.png" id="5_4pp6c"]
+[ext_resource type="PackedScene" uid="uid://bgkwbt38x42hv" path="res://scenes/objects/spike.tscn" id="5_yypx6"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_lflmn")
@@ -23,6 +23,4 @@ position = Vector2(8, 8)
 
 [node name="GameManager" parent="." instance=ExtResource("4_mhpb2")]
 
-[node name="SpikeHide" type="Sprite2D" parent="."]
-position = Vector2(42, 89)
-texture = ExtResource("5_4pp6c")
+[node name="SpikeHide" parent="." instance=ExtResource("5_yypx6")]

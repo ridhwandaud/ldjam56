@@ -2,6 +2,8 @@ extends Node2D
 
 var is_restart : bool
 
+@export var state: String = "A"
+
 func _process(delta):
 	if is_restart:
 		return
@@ -9,4 +11,6 @@ func _process(delta):
 	if Input.is_action_pressed("restart"):
 		is_restart = true
 		get_tree().reload_current_scene()
-		
+	
+func changeState(changeState: String):
+	state = changeState

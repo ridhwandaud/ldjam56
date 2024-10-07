@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgkwbt38x42hv"]
+
+[ext_resource type="Texture2D" uid="uid://bk3plge51he7q" path="res://sprites/spike_hide.png" id="1_vmfhh"]
+[ext_resource type="Script" path="res://scenes/objects/spike.gd" id="2_ygrkr"]
+[ext_resource type="Texture2D" uid="uid://bvbysvlhmufjv" path="res://sprites/spike.png" id="3_6ggvk"]
+
+[sub_resource type="Animation" id="Animation_n62lh"]
+resource_name = "spike_show"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_vmfhh"), ExtResource("3_6ggvk")]
+}
+
+[sub_resource type="Animation" id="Animation_edu3b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_vmfhh")]
+}
+
+[sub_resource type="Animation" id="Animation_qip1g"]
+resource_name = "spike_hide"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_6ggvk"), ExtResource("1_vmfhh")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgmiw"]
+_data = {
+"RESET": SubResource("Animation_edu3b"),
+"spike_hide": SubResource("Animation_qip1g"),
+"spike_show": SubResource("Animation_n62lh")
+}
+
+[node name="SpikeHide" type="Sprite2D"]
+position = Vector2(42, 89)
+texture = ExtResource("1_vmfhh")
+script = ExtResource("2_ygrkr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jgmiw")
+}
