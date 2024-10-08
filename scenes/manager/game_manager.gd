@@ -4,6 +4,8 @@ var is_restart : bool
 
 @export var state: String = "A"
 
+signal state_changed(new_state)
+
 func _process(delta):
 	if is_restart:
 		return
@@ -13,4 +15,6 @@ func _process(delta):
 		get_tree().reload_current_scene()
 	
 func changeState(changeState: String):
+	print("changeState", changeState)
 	state = changeState
+	emit_signal("state_changed", state)

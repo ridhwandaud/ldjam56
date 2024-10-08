@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://c0ae0ouauckjx"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://c0ae0ouauckjx"]
 
 [ext_resource type="Texture2D" uid="uid://bfgnu0axlqixe" path="res://sprites/tilemap_packed.png" id="1_6udlx"]
 [ext_resource type="Texture2D" uid="uid://cdp85s2dw6iwo" path="res://sprites/arrow.png" id="2_fk3u5"]
+[ext_resource type="Texture2D" uid="uid://c0etr34b7s52y" path="res://sprites/arrow_static.png" id="3_glrod"]
 [ext_resource type="Texture2D" uid="uid://io3kfe86ev7l" path="res://scenes/rat/rat_die.png" id="3_smd0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hpiea"]
@@ -16,6 +17,7 @@ texture = ExtResource("1_6udlx")
 7:0/0 = 0
 8:0/0 = 0
 9:0/0 = 0
+9:0/0/custom_data_0 = true
 9:0/0/custom_data_7 = true
 10:0/0 = 0
 10:0/0/custom_data_0 = true
@@ -175,6 +177,21 @@ texture = ExtResource("2_fk3u5")
 3:0/0/custom_data_2 = true
 3:0/0/custom_data_6 = true
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wg0r"]
+texture = ExtResource("3_glrod")
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+0:0/0/custom_data_2 = true
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+1:0/0/custom_data_1 = true
+2:0/0 = 0
+2:0/0/custom_data_0 = true
+2:0/0/custom_data_4 = true
+3:0/0 = 0
+3:0/0/custom_data_0 = true
+3:0/0/custom_data_3 = true
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8bi6"]
 texture = ExtResource("3_smd0b")
 0:0/0 = 0
@@ -199,3 +216,4 @@ custom_data_layer_7/type = 1
 sources/0 = SubResource("TileSetAtlasSource_hpiea")
 sources/1 = SubResource("TileSetAtlasSource_tyq52")
 sources/3 = SubResource("TileSetAtlasSource_n8bi6")
+sources/2 = SubResource("TileSetAtlasSource_2wg0r")

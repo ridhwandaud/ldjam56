@@ -1,6 +1,7 @@
 extends Node2D
 @onready var tile_map = $TileMap
 @onready var game_manager = $GameManager
+@onready var spike: Node2D = $SpikeHide
 
 # Listen for mouse click events
 func _input(event):
@@ -9,20 +10,6 @@ func _input(event):
 		var tile_position = tile_map.local_to_map(mouse_position)
 		
 		rotate_flip_tile(tile_position)
-		
-		if game_manager.state == "A":
-			print("change to B")
-			game_manager.changeState("B")
-		elif game_manager.state == "B":
-			print("change to C")
-			game_manager.changeState("C")
-		elif game_manager.state == "C":
-			print("change to D")
-			game_manager.changeState("D")
-		elif game_manager.state == "D":
-			print("change to A")
-			game_manager.changeState("A")
-
 
 func rotate_flip_tile(tile_position):
 	

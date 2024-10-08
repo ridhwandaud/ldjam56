@@ -4,7 +4,7 @@ extends Node2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player = $AnimationPlayer
 
-var targetScene = "res://scenes/level/level2.tscn"
+
 
 var is_moving = false
 
@@ -89,7 +89,8 @@ func move(direction: Vector2):
 		return
 	
 	if tile_data.get_custom_data("win"):
-		get_tree().change_scene_to_file(targetScene)
+		next_scene()
+		
 		
 	is_moving = true
 	global_position = tile_map.map_to_local(next_tile)
@@ -97,12 +98,29 @@ func move(direction: Vector2):
 	
 	if auto_next_tile != Vector2i.ZERO:
 		
+		var auto_ground_data: TileData = tile_map.get_cell_tile_data(0, auto_next_tile)
 		var auto_path_data: TileData = tile_map.get_cell_tile_data(1, auto_next_tile)
 		if auto_path_data:
 			if auto_path_data.get_custom_data("spike"):
 				is_dead = true
 				animation_player.play("die")
+			
+			if auto_ground_data.get_custom_data("win"):
+				next_scene();
+				#get_tree().change_scene_to_file(targetScene)
 		
 		global_position = tile_map.map_to_local(auto_next_tile)
 		sprite_2d.global_position = tile_map.map_to_local(next_tile)
+
+
+func next_scene():
+	var level_folder = "res://scenes/level/level"
+	
+	var current_scene_file = get_tree().current_scene.scene_file_path
+	var next_level = current_scene_file.to_int() + 1
+	var next_level_path = level_folder + str(next_level) + ".tscn"
+	
+	get_tree().change_scene_to_file(next_level_path)
+	
+	
 	

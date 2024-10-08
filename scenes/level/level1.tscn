@@ -21,3 +21,5 @@ layer_2/name = "Top"
 position = Vector2(8, 8)
 
 [node name="GameManager" parent="." instance=ExtResource("4_elycv")]
+
+[connection signal="state_changed" from="GameManager" to="." method="_on_game_manager_state_changed"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://vbikr0wt7axi"]
+
+[ext_resource type="Script" path="res://scenes/level/tile.gd" id="1_qeif6"]
+[ext_resource type="TileSet" uid="uid://c0ae0ouauckjx" path="res://scenes/level/tile.tres" id="2_l56a0"]
+[ext_resource type="PackedScene" uid="uid://2vjwaknvoaqv" path="res://scenes/rat/rat.tscn" id="3_akdo3"]
+[ext_resource type="PackedScene" uid="uid://cauid3vf78jo8" path="res://scenes/manager/game_manager.tscn" id="4_btd82"]
+[ext_resource type="PackedScene" uid="uid://bgkwbt38x42hv" path="res://scenes/objects/spike.tscn" id="5_h4qqq"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_qeif6")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_l56a0")
+format = 2
+layer_0/name = "Ground"
+layer_0/tile_data = PackedInt32Array(0, 0, 4, 1, 0, 4, 2, 393216, 3, 131076, 0, 4, 131077, 0, 4, 196614, 0, 4, 196615, 0, 4, 196616, 0, 4, 262151, 0, 4, 3, 0, 4, 4, 0, 4, 65540, 0, 4, 196612, 0, 4, 262148, 0, 4, 327684, 0, 4, 458756, 0, 4, 524292, 0, 4, 5, 0, 4, 65541, 0, 4, 196613, 0, 4, 262149, 0, 4, 327685, 0, 4, 393221, 0, 4, 458757, 0, 4, 524293, 0, 4, 6, 0, 4, 65542, 0, 4, 131078, 0, 4, 262150, 0, 4, 393222, 0, 4, 458758, 0, 4, 524294, 0, 4, 7, 0, 4, 65543, 0, 4, 131079, 0, 4, 327687, 0, 4, 393223, 0, 4, 458759, 0, 4, 524295, 0, 4, 8, 0, 4, 65544, 0, 4, 131080, 0, 4, 262152, 0, 4, 327688, 0, 4, 393224, 0, 4, 458760, 0, 4, 524296, 0, 4, 9, 0, 4, 65545, 0, 4, 131081, 0, 4, 196617, 0, 4, 262153, 0, 4, 327689, 0, 4, 393225, 0, 4, 458761, 0, 4, 524297, 0, 4, 327686, 0, 4, 393220, 0, 4, 589828, 0, 4, 589829, 0, 4, 589830, 0, 4, 589831, 0, 4, 589832, 0, 4, 589833, 0, 4, 65536, 0, 4, 131072, 0, 4, 196608, 0, 4, 262144, 0, 4, 327680, 0, 4, 393216, 0, 4, 458752, 0, 4, 524288, 0, 4, 589824, 0, 4, 65537, 0, 4, 131073, 0, 4, 196609, 0, 4, 262145, 0, 4, 327681, 0, 4, 393217, 0, 4, 458753, 0, 4, 524289, 0, 4, 589825, 0, 4, 65538, 0, 4, 131074, 0, 4, 196610, 0, 4, 262146, 0, 4, 327682, 0, 4, 393218, 0, 4, 458754, 0, 4, 524290, 0, 4, 589826, 0, 4, 65539, 0, 4, 131075, 0, 4, 196611, 0, 4, 262147, 0, 4, 327683, 0, 4, 393219, 0, 4, 458755, 0, 4, 524291, 0, 4, 589827, 0, 4)
+layer_1/name = "Path"
+layer_1/tile_data = PackedInt32Array(131077, 327680, 3, 131076, 131073, 0, 196615, 327680, 3, 327687, 327680, 3, 262151, 65537, 0)
+layer_2/name = "Top"
+
+[node name="Rat" parent="." instance=ExtResource("3_akdo3")]
+position = Vector2(8, 8)
+
+[node name="GameManager" parent="." instance=ExtResource("4_btd82")]
+
+[node name="SpikeHide" parent="." instance=ExtResource("5_h4qqq")]
